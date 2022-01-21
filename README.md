@@ -1,2 +1,2 @@
-# JsonMap_Golang
+# jsonmap_golang
 JsonMap util for Golang
