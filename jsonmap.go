@@ -585,7 +585,7 @@ func toAny(raw, def interface{}) (val interface{}, err error) {
 				v, e := strconv.ParseUint(string(n), 10, int(strconv.IntSize))
 				return uint(v), e
 			}
-		} else 	if rtk == dtk {
+		} else if rtk == dtk {
 			return raw, nil
 		}
 	}
