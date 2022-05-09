@@ -47,7 +47,8 @@ func main() {
 		long2, found, err := jm2.GetInt64("long", 0)
 		fmt.Println("useNumber=true,  GetInt64: ", long2, found, err)
 		fmt.Println("long1 == long2 ? ", long1 == long2) // false
-
+                
+		// Notice get int by float number
 		val1, found, err := jm.GetInt("f", 0) // 1 true <nil>
 		fmt.Println("Test GetInt by float, useNumber=False: ", val1, found, err)
 		val2, found, err := jm2.GetInt("f", 0) // 0 true strconv.ParseInt: parsing "1.3": invalid syntax
