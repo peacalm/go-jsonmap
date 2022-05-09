@@ -32,6 +32,10 @@ func main() {
 		fmt.Println("GetFloat64: ", val, found, err)
 	}
 	{
+		val, found, err := jm.GetString("s", 0)
+		fmt.Println("GetString: ", val, found, err)
+	}
+	{
 		val, found, err := jm.RGetInt([]string{"sub", "i"}, 0)
 		fmt.Println("RGetInt: ", val, found, err)
 	}
