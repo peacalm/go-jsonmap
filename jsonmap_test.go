@@ -75,8 +75,8 @@ func TestGet(t *testing.T) {
 	// 64bit long int
 	longint1, _, _ := jm1.GetInt64("longint", 0)
 	longint2, _, _ := jm2.GetInt64("longint", 0)
-	fmt.Println("GetInt64 with useNumber=false (real value 7095620078347567873):", longint1, "Wrong!")
-	fmt.Println("GetInt64 with useNumber=true  (real value 7095620078347567873):", longint2, "Correct!")
+	fmt.Println("GetInt64 from long int 7095620078347567873 with useNumber=false:", longint1, ", Wrong!")
+	fmt.Println("GetInt64 from long int 7095620078347567873 with useNumber=true: ", longint2, ", Correct!")
 
 }
 
