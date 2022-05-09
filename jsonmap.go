@@ -542,12 +542,11 @@ func toAny(raw, def interface{}) (val interface{}, err error) {
 	if raw != nil && def != nil {
 		rtk := reflect.TypeOf(raw).Kind()
 		dtk := reflect.TypeOf(def).Kind()
-		if rtk == dtk {
-			return raw, nil
-		}
 		if f, ok := raw.(float64); ok {
 			// NOTICE: json unmarshal all numbers to float64 as default, maybe precision lost
-			if dtk == reflect.Float32 {
+			if dtk == reflect.Float64 {
+				return raw, nil
+			} else if dtk == reflect.Float32 {
 				return float32(f), nil
 			} else if dtk == reflect.Int64 {
 				return int64(f), nil
@@ -586,6 +585,8 @@ func toAny(raw, def interface{}) (val interface{}, err error) {
 				v, e := strconv.ParseUint(string(n), 10, int(strconv.IntSize))
 				return uint(v), e
 			}
+		} else 	if rtk == dtk {
+			return raw, nil
 		}
 	}
 	return def, fmt.Errorf("type error: got %T but expected %T", raw, def)
