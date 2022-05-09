@@ -14,7 +14,6 @@ import (
 )
 
 func main() {
-
 	data := `{"b":true, "i":1, "f":1.3, "s":"str", "long":7095620078347567873, "sub":{"i":2}, "arr":[1,2]}`
 	jm, err := jsonmap.Unmarshal([]byte(data), false)
 	if err != nil {
