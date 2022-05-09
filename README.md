@@ -32,7 +32,7 @@ func main() {
 		fmt.Println("GetFloat64: ", val, found, err)
 	}
 	{
-		val, found, err := jm.GetString("s", 0)
+		val, found, err := jm.GetString("s", "")
 		fmt.Println("GetString: ", val, found, err)
 	}
 	{
