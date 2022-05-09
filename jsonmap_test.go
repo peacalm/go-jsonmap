@@ -77,7 +77,18 @@ func TestGet(t *testing.T) {
 	longint2, _, _ := jm2.GetInt64("longint", 0)
 	fmt.Println("GetInt64 from long int 7095620078347567873 with useNumber=false:", longint1, ", Wrong!")
 	fmt.Println("GetInt64 from long int 7095620078347567873 with useNumber=true: ", longint2, ", Correct!")
+	if longint1 == 7095620078347567873 {
+		t.Fatal("GetInt64 from long int with useNumber=false")
+	}
+	if longint2 != 7095620078347567873 {
+		t.Fatal("GetInt64 from long int with useNumber=true")
+	}
 
+	// float64
+	testGet(t, jm1, jm2, "f", 0.0, 1.3, true, false)
+	testGet(t, jm1, jm2, "none", -1.2, -1.2, false, false)
+	testGet(t, jm1, jm2, "i", 0.0, 1.0, true, false)
+	testGet(t, jm1, jm2, "longint", 0.0, float64(7095620078347567873), true, false)
 }
 
 func testGet(t *testing.T, jm1, jm2 jsonmap.JsonMap, key string, def, expectedVal interface{}, keyExists, hasErr bool) {
