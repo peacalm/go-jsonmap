@@ -55,7 +55,7 @@ func main() {
 		// NOTICE: get int by float number
 		// If useNumber=false: convert by int(${float number}), err will be nil
 		val1, found, err := jm.GetInt("f", 0) // 1 true <nil>
-		fmt.Println("Test GetInt by float, useNumber=False: ", val1, found, err)
+		fmt.Println("Test GetInt by float, useNumber=false: ", val1, found, err)
 		// If useNumber=true: convert by strconv.ParseInt("${string form of the float number}", 10, 64), err != nil
 		val2, found, err := jm2.GetInt("f", 0) // 0 true strconv.ParseInt: parsing "1.3": invalid syntax
 		fmt.Println("Test GetInt by float, useNumber=true:  ", val2, found, err)
